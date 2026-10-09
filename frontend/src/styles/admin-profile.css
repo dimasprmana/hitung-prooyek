@@ -1,0 +1,31 @@
+/* HITUNGPROYEK ADMIN - PROFILE */
+
+.admin-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.admin-profile-avatar {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #170c79;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.admin-profile-card h2 {
+  margin: 0;
+  color: #170c79;
+}
+
+.admin-profile-card p {
+  margin: 0.2rem 0 0.6rem;
+  color: #6e6b86;
+  font-size: 0.75rem;
+}

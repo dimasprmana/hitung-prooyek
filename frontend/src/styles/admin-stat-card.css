@@ -1,0 +1,25 @@
+/* HITUNGPROYEK ADMIN - STAT CARD */
+
+.admin-stat-card {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1rem;
+  border: 1px solid #e2e7ea;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.admin-stat-card span {
+  color: #6e6b86;
+  font-size: 0.7rem;
+}
+
+.admin-stat-card strong {
+  color: #170c79;
+  font-size: 1.35rem;
+}
+
+.admin-stat-card small {
+  color: #6e6b86;
+  font-size: 0.64rem;
+}

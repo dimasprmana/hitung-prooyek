@@ -1,0 +1,41 @@
+/* HITUNGPROYEK ADMIN - PAGE HEADER */
+
+.admin-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.25rem;
+}
+
+.admin-page-header > div:first-child {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.admin-eyebrow {
+  color: #56b6c6;
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-page-header h1 {
+  margin: 0;
+  color: #170c79;
+  font-size: 1.65rem;
+}
+
+.admin-page-header p {
+  margin: 0;
+  color: #6e6b86;
+  font-size: 0.76rem;
+}
+
+@media (max-width: 760px) {
+  .admin-page-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,177 @@
+/* HITUNGPROYEK ADMIN - BASE / SHARED */
+
+.admin-layout {
+  min-height: 100vh;
+  color: #29264f;
+  background: #f6f7f8;
+}
+
+.admin-main {
+  min-width: 0;
+  margin-left: 240px;
+}
+
+.admin-content {
+  padding: 1.5rem;
+}
+
+.admin-page {
+  display: grid;
+  width: min(100%, 1280px);
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.admin-panel {
+  overflow: hidden;
+  border: 1px solid #e2e7ea;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.admin-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #edf0f2;
+}
+
+.admin-panel-heading h2 {
+  margin: 0;
+  color: #170c79;
+  font-size: 0.95rem;
+}
+
+.admin-panel-heading p {
+  margin: 0.2rem 0 0;
+  color: #6e6b86;
+  font-size: 0.7rem;
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.74rem;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #edf0f2;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.admin-table th {
+  color: #6e6b86;
+  background: #fafbfc;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+}
+
+.admin-table td {
+  color: #4a4765;
+}
+
+.admin-table td strong {
+  color: #29264f;
+}
+
+.admin-table-action {
+  text-align: right !important;
+}
+
+.admin-status {
+  display: inline-flex;
+  min-height: 26px;
+  align-items: center;
+  padding: 0 0.55rem;
+  border-radius: 999px;
+  font-size: 0.64rem;
+  font-weight: 800;
+}
+
+.admin-status.active {
+  color: #067647;
+  background: #ecfdf3;
+}
+
+.admin-status.inactive {
+  color: #b42318;
+  background: #fff1f0;
+}
+
+.admin-input {
+  width: min(100%, 360px);
+  min-height: 42px;
+  padding: 0 0.75rem;
+  border: 1px solid #dbe1e5;
+  border-radius: 9px;
+  outline: 0;
+  background: #fff;
+}
+
+.admin-input:focus {
+  border-color: #56b6c6;
+  box-shadow: 0 0 0 3px rgba(86, 182, 198, 0.12);
+}
+
+.admin-button,
+.admin-link-button {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.8rem;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.admin-button.primary {
+  color: #fff;
+  background: #170c79;
+}
+
+.admin-button.secondary,
+.admin-link-button {
+  border-color: #d8e8ea;
+  color: #170c79;
+  background: #fff;
+}
+
+.admin-link-button {
+  min-height: 32px;
+}
+
+.admin-empty {
+  padding: 2rem;
+  color: #6e6b86;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 760px) {
+  .admin-main {
+    margin-left: 0;
+  }
+
+  .admin-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .admin-input {
+    width: 100%;
+  }
+}

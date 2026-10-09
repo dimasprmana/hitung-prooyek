@@ -1,0 +1,233 @@
+/* ================================
+   NOTIFICATION TOAST
+================================ */
+
+.admin-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 300px;
+  max-width: 420px;
+
+  padding: 13px 14px;
+
+  background: #ffffff;
+  border: 1px solid #d9eadf;
+  border-radius: 10px;
+
+  box-shadow:
+    0 12px 30px rgba(31, 35, 48, 0.12),
+    0 3px 8px rgba(31, 35, 48, 0.06);
+
+  color: #176b3a;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  animation:
+    admin-toast-in 0.25s ease-out;
+}
+
+.admin-toast svg {
+  flex-shrink: 0;
+}
+
+.admin-toast span {
+  flex: 1;
+}
+
+.admin-toast button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: #7b7a8c;
+
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.admin-toast button:hover {
+  background: #f2f2f5;
+  color: #29264f;
+}
+
+@keyframes admin-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-toast {
+    top: 16px;
+    right: 16px;
+    left: 16px;
+
+    min-width: 0;
+    max-width: none;
+  }
+}
+/* =================================
+   DELETE MODAL
+================================= */
+
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem;
+
+  background: rgba(18, 17, 31, 0.48);
+
+  backdrop-filter: blur(3px);
+}
+
+.admin-delete-modal {
+  width: min(100%, 420px);
+
+  padding: 1.5rem;
+
+  background: #ffffff;
+  border: 1px solid #e7e5ee;
+  border-radius: 14px;
+
+  box-shadow:
+    0 24px 60px rgba(22, 21, 38, 0.18),
+    0 8px 20px rgba(22, 21, 38, 0.08);
+
+  animation: admin-modal-in 0.2s ease-out;
+}
+
+.admin-delete-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  margin-bottom: 1rem;
+
+  border-radius: 50%;
+
+  background: #fff3e8;
+  color: #c65d12;
+}
+
+.admin-delete-content h2 {
+  margin: 0 0 0.45rem;
+
+  color: #29264f;
+
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.admin-delete-content p {
+  margin: 0 0 0.5rem;
+
+  color: #6e6b86;
+
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.admin-delete-content strong {
+  display: block;
+
+  color: #29264f;
+
+  font-size: 0.88rem;
+  font-weight: 800;
+
+  word-break: break-word;
+}
+
+.admin-delete-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+
+  margin-top: 1.5rem;
+}
+
+.admin-delete-actions .admin-button {
+  min-width: 82px;
+}
+
+.admin-button.danger {
+  border: 1px solid #c93636;
+
+  background: #c93636;
+  color: #ffffff;
+}
+
+.admin-button.danger:hover {
+  border-color: #a92b2b;
+  background: #a92b2b;
+}
+
+.admin-button.danger:disabled,
+.admin-button.secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.danger-link {
+  color: #c93636;
+}
+
+.danger-link:hover {
+  color: #a92b2b;
+}
+
+@keyframes admin-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-delete-modal {
+    padding: 1.25rem;
+  }
+
+  .admin-delete-actions {
+    flex-direction: column-reverse;
+  }
+
+  .admin-delete-actions .admin-button {
+    width: 100%;
+  }
+}

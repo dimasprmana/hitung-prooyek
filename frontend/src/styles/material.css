@@ -1,0 +1,399 @@
+/* =========================================================
+   HITUNGPROYEK - HALAMAN MATERIAL
+   ========================================================= */
+
+.material-page {
+  min-width: 0;
+}
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.material-page .page-heading-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.material-page .page-title {
+  min-width: 0;
+}
+
+.material-page .page-title h1 {
+  margin-bottom: 0.55rem;
+}
+
+.material-page .page-title p {
+  max-width: 680px;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.material-page .search-field {
+  position: relative;
+  display: block;
+  flex: 0 1 360px;
+  width: 360px;
+  min-width: 0;
+  color: var(--hp-text);
+  font-size: 0.92rem;
+  font-weight: 750;
+}
+
+.material-page .search-field svg {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  color: var(--hp-muted);
+  pointer-events: none;
+}
+
+.material-page .search-field input {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 0 0.85rem 0 2.5rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+  color: var(--hp-navy);
+  background: #fff;
+  font: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.material-page .search-field input::placeholder {
+  color: var(--hp-muted);
+}
+
+.material-page .search-field input:focus {
+  outline: none;
+  border-color: var(--hp-primary);
+  box-shadow: 0 0 0 3px rgba(86, 182, 198, 0.18);
+}
+
+/* =========================================================
+   TABLE CONTAINER
+   ========================================================= */
+
+.material-page .table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: #fff;
+
+  /* Scroll horizontal lebih nyaman di mobile */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.material-page .material-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.material-page .material-table th,
+.material-page .material-table td {
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--hp-border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.material-page .material-table th {
+  background: #fafafa;
+  color: var(--hp-navy);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.material-page .material-table td {
+  color: var(--hp-text);
+  font-size: 0.9rem;
+}
+
+.material-page .material-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.material-page .material-table tbody tr:hover {
+  background: rgba(138, 203, 208, 0.07);
+}
+
+.material-page .material-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* =========================================================
+   COLUMN
+   ========================================================= */
+
+.material-page .column-number {
+  width: 70px;
+  min-width: 70px;
+  text-align: center !important;
+  color: var(--hp-muted);
+}
+
+.material-page .column-price {
+  min-width: 150px;
+  text-align: right !important;
+}
+
+/* =========================================================
+   MATERIAL DATA
+   ========================================================= */
+
+.material-page .material-name {
+  color: var(--hp-navy);
+  font-weight: 700;
+}
+
+.material-page .material-price {
+  color: var(--hp-navy);
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   TABLE MESSAGE
+   ========================================================= */
+
+.material-page .table-message {
+  padding: 2rem !important;
+  color: var(--hp-muted) !important;
+  text-align: center !important;
+}
+
+.material-page .table-message.error {
+  color: #b42318 !important;
+}
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
+
+.material-page .material-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.material-page .pagination-info {
+  margin: 0;
+  color: var(--hp-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.material-page .pagination-info strong {
+  color: var(--hp-navy);
+  font-weight: 700;
+}
+
+.material-page .pagination-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.material-page .pagination-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 0.55rem;
+  flex-shrink: 0;
+  border: 1px solid var(--hp-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--hp-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.material-page .pagination-button:hover:not(:disabled) {
+  border-color: var(--hp-primary);
+  background: rgba(86, 182, 198, 0.08);
+  color: var(--hp-navy);
+}
+
+.material-page .pagination-button.active {
+  border-color: var(--hp-primary);
+  background: var(--hp-primary);
+  color: #fff;
+}
+
+.material-page .pagination-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.material-page .pagination-button.arrow {
+  padding: 0;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .material-page .page-heading-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .material-page .search-field {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .material-page .material-pagination {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .material-page .pagination-buttons {
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .material-page .page-heading-row {
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .material-page .page-title h1 {
+    font-size: 1.65rem;
+    line-height: 1.2;
+  }
+
+  .material-page .page-title p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .material-page .search-field input {
+    min-height: 44px;
+    font-size: 0.88rem;
+  }
+
+  /* Table tetap tabel, hanya bisa digeser horizontal */
+  .material-page .table-wrap {
+    border-radius: 10px;
+  }
+
+  .material-page .material-table {
+    min-width: 680px;
+  }
+
+  .material-page .material-table th,
+  .material-page .material-table td {
+    padding: 0.8rem 0.85rem;
+  }
+
+  .material-page .material-table th {
+    font-size: 0.7rem;
+  }
+
+  .material-page .material-table td {
+    font-size: 0.84rem;
+  }
+
+  .material-page .column-number {
+    width: 55px;
+    min-width: 55px;
+  }
+
+  .material-page .column-price {
+    min-width: 135px;
+  }
+
+  .material-page .material-pagination {
+    gap: 0.8rem;
+    margin-top: 0.85rem;
+  }
+
+  .material-page .pagination-info {
+    width: 100%;
+    font-size: 0.76rem;
+  }
+
+  .material-page .pagination-buttons {
+    width: 100%;
+    gap: 0.3rem;
+  }
+
+  .material-page .pagination-button {
+    min-width: 32px;
+    height: 32px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .material-page .page-title h1 {
+    font-size: 1.5rem;
+  }
+
+  .material-page .page-title p {
+    font-size: 0.84rem;
+  }
+
+  .material-page .material-table {
+    min-width: 640px;
+  }
+
+  .material-page .material-table th,
+  .material-page .material-table td {
+    padding: 0.72rem 0.75rem;
+  }
+
+  .material-page .pagination-buttons {
+    gap: 0.25rem;
+  }
+
+  .material-page .pagination-button {
+    min-width: 30px;
+    height: 30px;
+    font-size: 0.72rem;
+  }
+}

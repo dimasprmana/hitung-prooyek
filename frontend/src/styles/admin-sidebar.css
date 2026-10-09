@@ -1,0 +1,86 @@
+/* HITUNGPROYEK ADMIN - SIDEBAR */
+
+.admin-sidebar {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 1rem;
+  border-right: 1px solid #e4e7ec;
+  background: #fff;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.admin-brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 10px;
+  color: #fff;
+  background: #170c79;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.admin-brand div {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.admin-brand strong {
+  color: #170c79;
+  font-size: 0.9rem;
+}
+
+.admin-brand small {
+  color: #6e6b86;
+  font-size: 0.65rem;
+}
+
+.admin-nav {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.admin-nav-link,
+.admin-logout {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0 0.75rem;
+  border: 0;
+  border-radius: 9px;
+  color: #6e6b86;
+  background: transparent;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.admin-nav-link:hover,
+.admin-nav-link.active {
+  color: #170c79;
+  background: #eef8f9;
+}
+
+.admin-sidebar-bottom {
+  display: grid;
+  gap: 0.3rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #edf0f2;
+}
+
+.admin-logout {
+  width: 100%;
+  color: #b42318;
+}

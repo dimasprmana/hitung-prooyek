@@ -1,0 +1,309 @@
+.admin-login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f6f7f8;
+}
+
+.admin-login-card {
+  display: grid;
+  width: min(100%, 420px);
+  gap: 1.2rem;
+  padding: 2rem;
+  border: 1px solid #e2e7ea;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.admin-login-brand {
+  width: fit-content;
+  color: #170c79;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.admin-login-brand span {
+  color: #56b6c6;
+}
+
+.admin-login-card header {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.admin-login-card header > span {
+  color: #56b6c6;
+  font-size: 0.65rem;
+  font-weight: 850;
+}
+
+.admin-login-card h1 {
+  margin: 0;
+  color: #170c79;
+  font-size: 1.7rem;
+}
+
+.admin-login-card header p {
+  margin: 0;
+  color: #6e6b86;
+  font-size: 0.78rem;
+}
+
+.admin-login-card form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.admin-login-card label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.admin-login-card label > input,
+.admin-login-password {
+  min-height: 45px;
+  border: 1px solid #d8e8ea;
+  border-radius: 9px;
+}
+
+.admin-login-card label > input {
+  padding: 0 0.8rem;
+}
+
+.admin-login-password {
+  display: flex;
+  align-items: center;
+  padding-left: 0.8rem;
+}
+
+.admin-login-password input {
+  width: 100%;
+  min-width: 0;
+  min-height: 43px;
+  border: 0;
+  outline: 0;
+}
+
+.admin-login-password button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 0;
+  background: transparent;
+}
+
+.admin-login-submit {
+  min-height: 45px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: #170c79;
+  font-weight: 850;
+}
+
+.admin-login-demo {
+  min-height: 40px;
+  border: 1px solid #d8e8ea;
+  border-radius: 9px;
+  color: #170c79;
+  background: #fff;
+  font-weight: 750;
+}
+
+.admin-login-demo-info {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.75rem;
+  border-radius: 9px;
+  color: #6e6b86;
+  background: #f8f7f3;
+  font-size: 0.68rem;
+}
+
+.admin-login-demo-info strong {
+  color: #170c79;
+}
+
+.admin-login-message {
+  padding: 0.7rem;
+  border-radius: 9px;
+  color: #b42318;
+  background: #fff1f0;
+  font-size: 0.72rem;
+}
+
+.admin-login-back {
+  text-align: center;
+  color: #170c79;
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+/* =====================================================
+   LOGIN SUCCESS POPUP
+===================================================== */
+
+.admin-login-success-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: grid;
+  place-items: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.38);
+
+  animation: adminSuccessOverlayIn 0.2s ease;
+}
+
+.admin-login-success-popup {
+  width: min(100%, 360px);
+
+  padding: 28px 26px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.18);
+
+  text-align: center;
+
+  animation: adminSuccessPopupIn 0.22s ease;
+}
+
+.admin-login-success-check {
+  display: grid;
+
+  width: 60px;
+  height: 60px;
+
+  place-items: center;
+
+  margin: 0 auto 16px;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+  background: #22a06b;
+
+  box-shadow:
+    0 8px 20px rgba(34, 160, 107, 0.2);
+}
+
+.admin-login-success-popup h2 {
+  margin: 0;
+
+  color: #170c79;
+
+  font-size: 1.2rem;
+  font-weight: 850;
+}
+
+.admin-login-success-popup > p {
+  max-width: 270px;
+
+  margin: 8px auto 0;
+
+  color: #6e6b86;
+
+  font-size: 0.76rem;
+
+  line-height: 1.6;
+}
+
+.admin-login-success-timer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 18px;
+  padding-top: 14px;
+
+  border-top: 1px solid #edf0f3;
+
+  color: #7b8496;
+
+  font-size: 0.7rem;
+}
+
+.admin-login-success-timer strong {
+  display: inline-grid;
+
+  min-width: 24px;
+  height: 24px;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+  background: #170c79;
+
+  font-size: 0.7rem;
+  font-weight: 850;
+}
+
+.admin-login-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes adminSuccessOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes adminSuccessPopupIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 480px) {
+  .admin-login-success-popup {
+    width: min(100%, 330px);
+
+    padding: 24px 20px;
+  }
+
+  .admin-login-success-check {
+    width: 56px;
+    height: 56px;
+  }
+}

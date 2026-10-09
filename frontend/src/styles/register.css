@@ -1,0 +1,125 @@
+.register-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--hp-bg, #f8f7f3);
+}
+
+.register-card {
+  display: grid;
+  width: min(100%, 440px);
+  gap: 1.1rem;
+  padding: 2rem;
+  border: 1px solid var(--hp-border, #d8e8ea);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.register-brand {
+  width: fit-content;
+  color: var(--hp-navy, #170c79);
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.register-brand span {
+  color: var(--hp-primary, #56b6c6);
+}
+
+.register-header {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.register-header h1 {
+  margin: 0;
+  color: var(--hp-navy, #170c79);
+  font-size: 1.75rem;
+}
+
+.register-header p {
+  margin: 0;
+  color: var(--hp-muted, #6e6b86);
+  font-size: 0.78rem;
+}
+
+.register-form {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.register-field {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.register-field > input,
+.register-password {
+  min-height: 45px;
+  border: 1px solid var(--hp-border, #d8e8ea);
+  border-radius: 9px;
+}
+
+.register-field > input {
+  padding: 0 0.8rem;
+}
+
+.register-password {
+  display: flex;
+  align-items: center;
+  padding-left: 0.8rem;
+}
+
+.register-password input {
+  width: 100%;
+  min-width: 0;
+  min-height: 43px;
+  border: 0;
+  outline: 0;
+}
+
+.register-password button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 0;
+  background: transparent;
+}
+
+.register-submit {
+  min-height: 45px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: var(--hp-navy, #170c79);
+  font-weight: 850;
+}
+
+.register-message {
+  padding: 0.7rem;
+  border-radius: 9px;
+  color: #b42318;
+  background: #fff1f0;
+  font-size: 0.72rem;
+}
+
+.register-switch,
+.register-back {
+  margin: 0;
+  text-align: center;
+  font-size: 0.72rem;
+}
+
+.register-switch {
+  color: var(--hp-muted, #6e6b86);
+}
+
+.register-switch a,
+.register-back {
+  color: var(--hp-navy, #170c79);
+  font-weight: 750;
+}

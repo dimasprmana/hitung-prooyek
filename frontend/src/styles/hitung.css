@@ -1,0 +1,854 @@
+/* =========================================================
+   HITUNGPROYEK - HALAMAN HITUNG
+========================================================= */
+
+.hitung-page {
+  min-height: calc(100vh - 72px);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hitung-hero-section {
+  padding: 3rem 0 1.5rem;
+}
+
+.hitung-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.8fr);
+  align-items: center;
+  gap: 4rem;
+}
+
+.hitung-hero-copy {
+  display: grid;
+  gap: 1.15rem;
+  max-width: 620px;
+}
+
+.hitung-hero-copy .eyebrow {
+  color: var(--hp-primary-hover);
+}
+
+.hitung-hero-copy h1 {
+  max-width: 620px;
+  margin: 0;
+  color: var(--hp-navy);
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.08;
+}
+
+.hitung-hero-copy > p {
+  max-width: 580px;
+  margin: 0;
+  color: var(--hp-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.hitung-hero-visual {
+  position: relative;
+  display: grid;
+  min-height: 380px;
+  place-items: center;
+  isolation: isolate;
+}
+
+.hitung-hero-glow {
+  position: absolute;
+  z-index: -1;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(138, 203, 208, 0.3) 0%,
+    rgba(86, 182, 198, 0.12) 48%,
+    transparent 72%
+  );
+  filter: blur(4px);
+}
+
+.hitung-hero-visual img {
+  display: block;
+  width: min(100%, 460px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(
+    0 28px 30px rgba(23, 12, 121, 0.1)
+  );
+}
+
+/* =========================================================
+   TOOLBAR FILTER
+========================================================= */
+
+.hitung-calculator-section {
+  padding-top: 2rem;
+}
+
+.hitung-toolbar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.hitung-page .filter-tabs {
+  display: inline-flex;
+  width: fit-content;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.35rem;
+  border: 1px solid var(--hp-border);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.hitung-page .filter-tab {
+  min-height: 38px;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 999px;
+  color: var(--hp-muted);
+  background: transparent;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hitung-page .filter-tab.active,
+.hitung-page .filter-tab:hover {
+  color: var(--hp-navy);
+  background: rgba(138, 203, 208, 0.22);
+}
+
+/* =========================================================
+   GROUP KALKULATOR
+========================================================= */
+
+.hitung-page .calculator-group {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.calculator-group-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.calculator-group-heading h2 {
+  margin: 0;
+  color: var(--hp-navy);
+  font-size: 1.25rem;
+}
+
+.calculator-group-heading span {
+  color: var(--hp-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hitung-page .card-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    minmax(0, 1fr)
+  );
+  gap: 1.1rem;
+}
+
+.hitung-page .calculator-card {
+  display: grid;
+  min-height: 240px;
+  gap: 1rem;
+  padding: 1.25rem;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.hitung-page .calculator-card:hover {
+  transform: translateY(-2px);
+}
+
+.hitung-page .card-icon {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  border-radius: var(--hp-radius-sm);
+  color: var(--hp-navy);
+  background: rgba(138, 203, 208, 0.2);
+}
+
+.hitung-page .card-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.hitung-page .card-kicker {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  color: var(--hp-primary-hover);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hitung-page .calculator-card p {
+  margin-top: 0.45rem;
+}
+
+.hitung-page .card-action {
+  display: inline-flex;
+  align-items: center;
+  align-self: end;
+  gap: 0.45rem;
+  color: var(--hp-primary-hover);
+  font-weight: 800;
+}
+
+/* =========================================================
+   HALAMAN DETAIL KALKULATOR
+========================================================= */
+
+.hitung-page .calculator-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.hitung-page .calculator-detail-shell {
+  display: grid;
+  gap: 1rem;
+  max-width: 980px;
+  margin: 0 auto 2rem;
+}
+
+.hitung-page .calculator-detail-title {
+  max-width: 720px;
+  margin: 0;
+  text-align: left;
+}
+
+.hitung-page .calculator-detail-title h1 {
+  margin-top: 0.55rem;
+}
+
+.hitung-page .calculator-detail-title p {
+  max-width: 640px;
+}
+
+.hitung-page .calculator-back-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 42px;
+  padding: 0 0.9rem;
+  border: 1px solid rgba(23, 12, 121, 0.14);
+  border-radius: 999px;
+  color: var(--hp-navy);
+  background: rgba(255, 255, 255, 0.74);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.hitung-page .calculator-back-link:hover {
+  border-color: rgba(86, 182, 198, 0.55);
+  background: rgba(138, 203, 208, 0.14);
+}
+
+.hitung-page .form-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.hitung-page .calculator-input-form {
+  --form-primary: #170c79;
+  --form-soft: #efe3ca;
+  --form-accent: #56b6c6;
+  --form-accent-soft: #8acbd0;
+}
+
+.hitung-page .calculator-form-section,
+.hitung-page .advanced-options {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgba(23, 12, 121, 0.12);
+  border-radius: var(--hp-radius-md);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.hitung-page .form-section-heading {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.hitung-page .form-section-heading h3,
+.hitung-page .advanced-options summary {
+  color: var(--form-primary);
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+.hitung-page .form-section-heading p {
+  color: var(--hp-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.hitung-page .advanced-options summary {
+  cursor: pointer;
+}
+
+.hitung-page .advanced-options .input-grid {
+  margin-top: 0.85rem;
+}
+
+.hitung-page .form-panel label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--hp-text);
+  font-size: 0.92rem;
+  font-weight: 750;
+}
+
+.hitung-page .form-panel input,
+.hitung-page .form-panel select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+  color: var(--hp-navy);
+  background: #fff;
+}
+
+.hitung-page .form-panel input:focus,
+.hitung-page .form-panel select:focus {
+  outline: none;
+  border-color: var(--hp-primary);
+  box-shadow:
+    0 0 0 3px rgba(86, 182, 198, 0.18);
+}
+
+.hitung-page .input-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+  gap: 0.8rem;
+}
+
+.hitung-page .form-field.full-span,
+.hitung-page .dynamic-field-group {
+  grid-column: 1 / -1;
+}
+
+.hitung-page .field-label {
+  color: var(--hp-text);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.hitung-page .field-control {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+  background: #fff;
+}
+
+.hitung-page .field-control:focus-within {
+  border-color: var(--form-accent);
+  box-shadow:
+    0 0 0 3px rgba(86, 182, 198, 0.18);
+}
+
+.hitung-page .field-control input,
+.hitung-page .field-control select {
+  min-height: 44px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.hitung-page .field-control > span {
+  flex: 0 0 auto;
+  padding: 0 0.75rem;
+  color: var(--hp-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.hitung-page .radio-card-group {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+  gap: 0.65rem;
+}
+
+.hitung-page .radio-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+  color: var(--hp-text);
+  background: #fff;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.hitung-page .radio-card:hover {
+  border-color: rgba(86, 182, 198, 0.55);
+  background: rgba(138, 203, 208, 0.08);
+}
+
+.hitung-page .radio-card.selected {
+  border-color: rgba(86, 182, 198, 0.7);
+  color: var(--form-primary);
+  background: rgba(138, 203, 208, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(86, 182, 198, 0.08);
+}
+
+.hitung-page .radio-card input[type='radio'] {
+  position: absolute;
+  width: 1px !important;
+  min-width: 1px !important;
+  height: 1px !important;
+  min-height: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hitung-page .radio-card:focus-within {
+  border-color: var(--hp-primary);
+  box-shadow:
+    0 0 0 3px rgba(86, 182, 198, 0.18);
+}
+
+.hitung-page .checkbox-line {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 46px;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+  background: #fff;
+}
+
+.hitung-page .checkbox-line input {
+  width: 18px;
+  min-height: 18px;
+}
+
+.hitung-page .dynamic-field-group {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.8rem;
+  border: 1px dashed rgba(23, 12, 121, 0.18);
+  border-radius: var(--hp-radius-sm);
+  background: rgba(239, 227, 202, 0.22);
+}
+
+.hitung-page .dynamic-field-heading,
+.hitung-page .dynamic-field-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hitung-page .dynamic-field-heading h4 {
+  color: var(--form-primary);
+  font-size: 0.92rem;
+}
+
+.hitung-page .dynamic-add {
+  min-height: 38px;
+  padding: 0 0.85rem;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .hitung-hero {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(300px, 0.75fr);
+
+    gap: 2.5rem;
+  }
+
+  .hitung-page .card-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  }
+}
+
+
+/* =========================================================
+   TABLET KECIL
+========================================================= */
+
+@media (max-width: 800px) {
+  .hitung-hero-section {
+    padding: 2.5rem 0 1rem;
+  }
+
+  .hitung-hero {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hitung-hero-copy {
+    max-width: 100%;
+  }
+
+  .hitung-hero-copy h1 {
+    max-width: 650px;
+    font-size: clamp(
+      2rem,
+      6vw,
+      2.6rem
+    );
+  }
+
+  .hitung-hero-copy > p {
+    max-width: 650px;
+  }
+
+  .hitung-hero-visual {
+    min-height: 300px;
+  }
+
+  .hitung-hero-visual img {
+    width: min(100%, 360px);
+  }
+
+  .hitung-hero-glow {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hitung-page .card-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .hitung-page {
+    min-height: auto;
+  }
+
+  /* HERO */
+
+  .hitung-hero-section {
+    padding: 1.8rem 0 0.5rem;
+  }
+
+  .hitung-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .hitung-hero-copy {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .hitung-hero-copy .eyebrow {
+    font-size: 0.68rem;
+  }
+
+  .hitung-hero-copy h1 {
+    max-width: 100%;
+    margin: 0;
+    font-size: 1.85rem;
+    line-height: 1.13;
+  }
+
+  .hitung-hero-copy > p {
+    max-width: 100%;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+
+  /* GAMBAR HERO */
+
+  .hitung-hero-visual {
+    min-height: 230px;
+    margin-top: 0.25rem;
+  }
+
+  .hitung-hero-visual img {
+    width: min(100%, 270px);
+    max-height: 250px;
+  }
+
+  .hitung-hero-glow {
+    width: 220px;
+    height: 220px;
+  }
+
+  /* SECTION */
+
+  .hitung-calculator-section {
+    padding-top: 1.25rem;
+  }
+
+  /* FILTER */
+
+  .hitung-toolbar {
+    width: calc(100vw - 32px);
+    max-width: none;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .hitung-toolbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hitung-page .filter-tabs {
+    flex-wrap: nowrap;
+    width: max-content;
+    max-width: none;
+    padding: 0.25rem;
+  }
+
+  .hitung-page .filter-tab {
+    min-height: 36px;
+    padding: 0 0.85rem;
+    font-size: 0.72rem;
+  }
+
+  /* GROUP */
+
+  .hitung-page .calculator-group {
+    gap: 0.8rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .calculator-group-heading {
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+
+  .calculator-group-heading h2 {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .calculator-group-heading span {
+    font-size: 0.68rem;
+  }
+
+  /* CARD */
+
+  .hitung-page .card-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .hitung-page .calculator-card {
+    min-height: 0;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .hitung-page .card-icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .hitung-page .card-kicker {
+    margin-bottom: 0.25rem;
+    font-size: 0.65rem;
+  }
+
+  .hitung-page .calculator-card h3 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .hitung-page .calculator-card p {
+    margin-top: 0.35rem;
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .hitung-page .card-action {
+    font-size: 0.78rem;
+  }
+
+  /* DETAIL CALCULATOR */
+
+  .hitung-page .calculator-detail-shell {
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hitung-page .calculator-detail-title {
+    max-width: 100%;
+  }
+
+  .hitung-page .calculator-detail-title h1 {
+    margin-top: 0.4rem;
+    font-size: 1.7rem;
+    line-height: 1.2;
+  }
+
+  .hitung-page .calculator-detail-title p {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .hitung-page .calculator-back-link {
+    min-height: 38px;
+    padding: 0 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  /* FORM */
+
+  .hitung-page .calculator-form-section,
+  .hitung-page .advanced-options {
+    padding: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .hitung-page .input-grid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .hitung-page .form-field.full-span,
+  .hitung-page .dynamic-field-group {
+    grid-column: auto;
+  }
+
+  .hitung-page .radio-card-group {
+    grid-template-columns: 1fr;
+  }
+
+  .hitung-page .form-panel label {
+    font-size: 0.82rem;
+  }
+
+  .hitung-page .form-panel input,
+  .hitung-page .form-panel select {
+    min-height: 44px;
+    font-size: 0.85rem;
+  }
+
+  .hitung-page .field-control input,
+  .hitung-page .field-control select {
+    min-height: 42px;
+  }
+
+  .hitung-page .dynamic-field-heading,
+  .hitung-page .dynamic-field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hitung-page .dynamic-add {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   HP SANGAT KECIL
+========================================================= */
+
+@media (max-width: 380px) {
+  .hitung-hero-section {
+    padding-top: 1.5rem;
+  }
+
+  .hitung-hero-copy h1 {
+    font-size: 1.65rem;
+  }
+
+  .hitung-hero-copy > p {
+    font-size: 0.8rem;
+  }
+
+  .hitung-hero-visual {
+    min-height: 200px;
+  }
+
+  .hitung-hero-visual img {
+    width: 230px;
+    max-height: 215px;
+  }
+
+  .hitung-hero-glow {
+    width: 180px;
+    height: 180px;
+  }
+
+  .calculator-group-heading h2 {
+    font-size: 0.98rem;
+  }
+
+  .calculator-group-heading span {
+    font-size: 0.62rem;
+  }
+
+  .hitung-page .calculator-card {
+    padding: 0.9rem;
+  }
+}

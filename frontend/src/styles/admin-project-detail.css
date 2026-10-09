@@ -1,0 +1,32 @@
+/* HITUNGPROYEK ADMIN - PROJECT DETAIL */
+
+.admin-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.admin-info-card {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1rem;
+  border: 1px solid #e2e7ea;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.admin-info-card span {
+  color: #6e6b86;
+  font-size: 0.7rem;
+}
+
+.admin-info-card strong {
+  color: #170c79;
+  font-size: 1.35rem;
+}
+
+@media (max-width: 760px) {
+  .admin-info-grid {
+    grid-template-columns: 1fr;
+  }
+}

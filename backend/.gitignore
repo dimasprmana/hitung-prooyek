@@ -1,0 +1,8 @@
+node_modules
+.env
+dist
+coverage
+npm-debug.log*
+storage/sessions/*
+database/*.sqlite-shm
+database/*.sqlite-wal

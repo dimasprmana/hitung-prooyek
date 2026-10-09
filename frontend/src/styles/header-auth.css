@@ -1,0 +1,1171 @@
+/* =====================================================
+   HITUNGPROYEK - MAIN HEADER
+===================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+
+  border-bottom: 1px solid #e6edf4;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 2px 14px
+      rgba(18, 39, 67, 0.035);
+
+  backdrop-filter: blur(14px);
+}
+
+
+/* =====================================================
+   HEADER INNER
+===================================================== */
+
+.header-inner {
+  display: grid;
+
+  grid-template-columns:
+    minmax(190px, 1fr)
+    auto
+    minmax(190px, 1fr);
+
+  width: min(
+    calc(100% - 40px),
+    1440px
+  );
+
+  min-height: 76px;
+
+  margin: 0 auto;
+
+  align-items: center;
+
+  gap: 2rem;
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.header-brand {
+  display: inline-flex;
+
+  width: fit-content;
+
+  align-items: center;
+
+  min-width: 0;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+}
+
+.header-brand:hover {
+  opacity: 0.9;
+}
+
+/*
+ * Pastikan isi BrandLogo tidak ikut mengecil
+ * atau hilang ketika responsive.
+ */
+.header-brand > * {
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   MAIN NAVIGATION
+===================================================== */
+
+.main-nav {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.35rem;
+
+  padding: 0.3rem;
+
+  border-radius: 14px;
+}
+
+.nav-link {
+  display: inline-flex;
+
+  min-height: 42px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0 1rem;
+
+  border-radius: 11px;
+
+  color: #6d7088;
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.nav-link:hover {
+  color: #0877e8;
+
+  background: #f3f8fc;
+}
+
+.nav-link-active {
+  color: #076ed2;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf6ff,
+      #edf9fa
+    );
+}
+
+.nav-link-active:hover {
+  color: #076ed2;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf6ff,
+      #edf9fa
+    );
+}
+
+
+/* =====================================================
+   RIGHT AREA
+===================================================== */
+
+.header-right {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  min-width: 0;
+}
+
+
+/* =====================================================
+   PROFILE LINK
+===================================================== */
+
+.header-profile-link {
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(0, 1fr)
+    auto;
+
+  min-width: 205px;
+
+  min-height: 54px;
+
+  align-items: center;
+
+  gap: 0.7rem;
+
+  padding:
+    0.4rem
+    0.75rem
+    0.4rem
+    0.45rem;
+
+  border: 1px solid #dce7ef;
+
+  border-radius: 14px;
+
+  color: inherit;
+
+  background: #ffffff;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 3px 12px
+      rgba(31, 65, 101, 0.035);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.header-profile-link:hover {
+  transform: translateY(-1px);
+
+  border-color: #b8d9ef;
+
+  background: #f8fcff;
+
+  box-shadow:
+    0 7px 18px
+      rgba(24, 76, 126, 0.075);
+}
+
+.header-profile-active {
+  border-color: #aad5f2;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f2faff,
+      #f7fcff
+    );
+}
+
+
+/* =====================================================
+   PROFILE AVATAR
+===================================================== */
+
+.header-user-avatar {
+  display: grid;
+
+  width: 38px;
+
+  height: 38px;
+
+  place-items: center;
+
+  flex: 0 0 auto;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0877e8,
+      #0d4fc5
+    );
+
+  box-shadow:
+    0 3px 9px
+      rgba(8, 119, 232, 0.18);
+
+  font-size: 0.76rem;
+
+  font-weight: 800;
+}
+
+.header-user-avatar img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =====================================================
+   PROFILE TEXT
+===================================================== */
+
+.header-user-copy {
+  display: grid;
+
+  min-width: 0;
+
+  gap: 0.1rem;
+
+  text-align: left;
+}
+
+.header-user-copy strong {
+  max-width: 130px;
+
+  overflow: hidden;
+
+  color: #13224d;
+
+  font-size: 0.73rem;
+
+  font-weight: 750;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.header-user-copy small {
+  color: #7c879d;
+
+  font-size: 0.58rem;
+
+  font-weight: 500;
+}
+
+.header-profile-arrow {
+  color: #637391;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.header-profile-link:hover
+  .header-profile-arrow {
+  transform: translateX(2px);
+
+  color: #0877e8;
+}
+
+
+/* =====================================================
+   LOGIN / REGISTER
+===================================================== */
+
+.header-auth-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.55rem;
+}
+
+.header-login-button,
+.header-register-button {
+  display: inline-flex;
+
+  min-height: 42px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0 1rem;
+
+  border-radius: 10px;
+
+  font-size: 0.76rem;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.header-login-button {
+  border: 1px solid #dce7ef;
+
+  color: #13224d;
+
+  background: #ffffff;
+}
+
+.header-login-button:hover {
+  border-color: #bad7eb;
+
+  background: #f6fbff;
+}
+
+.header-register-button {
+  border: 1px solid #0877e8;
+
+  color: #ffffff;
+
+  background: #0877e8;
+}
+
+.header-register-button:hover {
+  transform: translateY(-1px);
+
+  background: #056bd4;
+}
+
+
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
+
+.mobile-menu-button {
+  display: none;
+
+  width: 40px;
+
+  height: 40px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-left: auto;
+
+  padding: 0;
+
+  border: 1px solid #dce7ef;
+
+  border-radius: 10px;
+
+  color: #13224d;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.mobile-menu-button:hover {
+  border-color: #b8d9ef;
+
+  color: #0877e8;
+
+  background: #f6fbff;
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .header-inner {
+    grid-template-columns:
+      auto
+      1fr
+      auto;
+
+    gap: 1rem;
+  }
+
+  .main-nav {
+    gap: 0.15rem;
+  }
+
+  .nav-link {
+    padding: 0 0.7rem;
+
+    font-size: 0.75rem;
+  }
+
+  .header-profile-link {
+    min-width: 170px;
+  }
+
+  .header-user-copy strong {
+    max-width: 95px;
+  }
+}
+
+
+/* =====================================================
+   SMALL TABLET
+===================================================== */
+
+@media (max-width: 740px) {
+
+  .header-inner {
+    width: min(
+      calc(100% - 24px),
+      1440px
+    );
+
+    min-height: 68px;
+  }
+
+  .header-profile-link {
+    min-width: 0;
+
+    padding: 0.35rem;
+  }
+
+  .header-user-copy,
+  .header-profile-arrow {
+    display: none;
+  }
+
+  .header-user-avatar {
+    width: 36px;
+
+    height: 36px;
+  }
+
+  /*
+   * Pada ukuran ini navigation masih boleh
+   * digunakan dengan horizontal scroll.
+   */
+  .main-nav {
+    overflow-x: auto;
+
+    justify-content: flex-start;
+
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 580px) {
+
+  .site-header {
+    box-shadow:
+      0 2px 14px
+        rgba(18, 39, 67, 0.06);
+  }
+
+  .header-inner {
+    display: flex;
+
+    width: 100%;
+
+    min-height: 64px;
+
+    padding: 0 16px;
+
+    gap: 0;
+  }
+
+
+  /* ---------------------------------------------------
+     HIDE DESKTOP NAVIGATION
+  --------------------------------------------------- */
+
+  .main-nav,
+  .header-right {
+    display: none;
+  }
+
+
+  /* ---------------------------------------------------
+     BRAND
+  --------------------------------------------------- */
+
+  .header-brand {
+    display: inline-flex;
+
+    align-items: center;
+
+    flex: 1 1 auto;
+
+    flex-shrink: 1;
+
+    min-width: 0;
+
+    max-width: calc(100% - 56px);
+
+    width: auto;
+
+    text-decoration: none;
+  }
+
+  /*
+   * Jangan sembunyikan isi BrandLogo.
+   * Ini penting agar tulisan HitungProyek
+   * tetap tampil pada HP.
+   */
+  .header-brand > * {
+    display: inline-flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+    min-width: 0;
+  }
+
+
+  /* ---------------------------------------------------
+     MOBILE MENU BUTTON
+  --------------------------------------------------- */
+
+  .mobile-menu-button {
+    display: inline-flex;
+
+    width: 40px;
+
+    height: 40px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-left: auto;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border: 1px solid #dce7ef;
+
+    border-radius: 10px;
+
+    color: #13224d;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .mobile-menu-button:hover {
+    border-color: #b8d9ef;
+
+    color: #0877e8;
+
+    background: #f6fbff;
+  }
+
+
+  /* =================================================
+     MOBILE DROPDOWN
+  ================================================= */
+
+  .mobile-menu {
+    display: block;
+
+    position: absolute;
+
+    top: 100%;
+
+    left: 0;
+
+    right: 0;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    border-top:
+      1px solid transparent;
+
+    background: #ffffff;
+
+    box-shadow:
+      0 12px 30px
+        rgba(18, 39, 67, 0.09);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+      translateY(-5px);
+
+    transition:
+      max-height 0.25s ease,
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .mobile-menu-open {
+    max-height: 500px;
+
+    border-top-color: #e6edf4;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+      translateY(0);
+  }
+
+  .mobile-menu-list {
+    display: flex;
+
+    flex-direction: column;
+
+    padding:
+      10px
+      16px
+      16px;
+  }
+
+
+  /* =================================================
+     MOBILE LINKS
+  ================================================= */
+
+  .mobile-menu-link {
+    display: flex;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    align-items: center;
+
+    padding:
+      0
+      14px;
+
+    border-radius: 10px;
+
+    color: #59657d;
+
+    font-size: 0.78rem;
+
+    font-weight: 750;
+
+    text-decoration: none;
+
+    transition:
+      color 0.18s ease,
+      background 0.18s ease;
+  }
+
+  .mobile-menu-link:hover {
+    color: #0877e8;
+
+    background: #f5f9fc;
+  }
+
+  .mobile-menu-link-active {
+    color: #076ed2;
+
+    background:
+      linear-gradient(
+        135deg,
+        #eaf6ff,
+        #edf9fa
+      );
+  }
+
+
+  /* =================================================
+     MOBILE LOGOUT
+  ================================================= */
+
+  .mobile-menu-logout {
+    display: flex;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 7px;
+
+    padding:
+      10px
+      14px;
+
+    border: 0;
+
+    border-top:
+      1px solid #edf1f5;
+
+    border-radius: 0;
+
+    color: #d04444;
+
+    background: transparent;
+
+    font-family: inherit;
+
+    font-size: 0.78rem;
+
+    font-weight: 750;
+
+    text-align: left;
+
+    cursor: pointer;
+  }
+
+  .mobile-menu-logout:hover {
+    color: #bd3838;
+
+    background: #fff5f5;
+  }
+
+
+  /* =================================================
+     MOBILE LOGIN / REGISTER
+  ================================================= */
+
+  .mobile-auth-actions {
+    display: grid;
+
+    grid-template-columns:
+      1fr
+      1fr;
+
+    gap: 8px;
+
+    margin-top: 8px;
+
+    padding-top: 10px;
+
+    border-top:
+      1px solid #edf1f5;
+  }
+
+  .mobile-login-button,
+  .mobile-register-button {
+    display: flex;
+
+    min-height: 44px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    text-decoration: none;
+  }
+
+  .mobile-login-button {
+    border: 1px solid #dce7ef;
+
+    color: #13224d;
+
+    background: #ffffff;
+  }
+
+  .mobile-register-button {
+    border: 1px solid #0877e8;
+
+    color: #ffffff;
+
+    background: #0877e8;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+  .header-inner {
+    padding:
+      0 13px;
+  }
+
+  .header-brand {
+    max-width:
+      calc(100% - 50px);
+  }
+
+  .mobile-menu-button {
+    width: 38px;
+
+    height: 38px;
+  }
+
+  .mobile-menu-list {
+    padding:
+      8px
+      12px
+      14px;
+  }
+}
+
+
+/* =====================================================
+   LOGOUT CONFIRMATION
+===================================================== */
+
+.header-logout-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 20px;
+
+  background:
+    rgba(15, 23, 42, 0.42);
+}
+
+.header-logout-modal {
+  position: relative;
+
+  width: min(
+    100%,
+    390px
+  );
+
+  padding: 28px;
+
+  border:
+    1px solid #e2e8f0;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 24px 70px
+      rgba(10, 29, 59, 0.25);
+
+  text-align: center;
+
+  animation:
+    headerLogoutAppear
+    0.2s ease;
+}
+
+@keyframes headerLogoutAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+.header-logout-close {
+  position: absolute;
+
+  top: 12px;
+
+  right: 12px;
+
+  display: grid;
+
+  width: 34px;
+
+  height: 34px;
+
+  place-items: center;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  color: #718096;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.header-logout-close:hover {
+  color: #13224d;
+
+  background: #f5f7fa;
+}
+
+.header-logout-icon {
+  display: grid;
+
+  width: 58px;
+
+  height: 58px;
+
+  place-items: center;
+
+  margin:
+    0
+    auto
+    14px;
+
+  border-radius: 50%;
+
+  color: #d04444;
+
+  background: #fff0f0;
+}
+
+.header-logout-modal h2 {
+  margin: 0;
+
+  color: #13224d;
+
+  font-size: 1.15rem;
+
+  font-weight: 850;
+}
+
+.header-logout-modal p {
+  max-width: 300px;
+
+  margin:
+    8px
+    auto
+    0;
+
+  color: #71809a;
+
+  font-size: 0.76rem;
+
+  line-height: 1.6;
+}
+
+.header-logout-actions {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 9px;
+
+  margin-top: 20px;
+}
+
+.header-logout-cancel,
+.header-logout-confirm {
+  display: inline-flex;
+
+  min-height: 44px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  border-radius: 9px;
+
+  font-family: inherit;
+
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.header-logout-cancel {
+  border:
+    1px solid #dce4ec;
+
+  color: #42526f;
+
+  background: #ffffff;
+}
+
+.header-logout-cancel:hover {
+  background: #f7f9fc;
+}
+
+.header-logout-confirm {
+  border:
+    1px solid #d04444;
+
+  color: #ffffff;
+
+  background: #d04444;
+}
+
+.header-logout-confirm:hover {
+  border-color: #bd3838;
+
+  background: #bd3838;
+}
+
+.header-logout-cancel:disabled,
+.header-logout-confirm:disabled,
+.header-logout-close:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.6;
+}
+
+
+/* =====================================================
+   LOGOUT MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .header-logout-overlay {
+    padding: 16px;
+  }
+
+  .header-logout-modal {
+    width: 100%;
+
+    padding:
+      24px
+      20px;
+  }
+
+  .header-logout-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .header-logout-confirm {
+    order: -1;
+  }
+}

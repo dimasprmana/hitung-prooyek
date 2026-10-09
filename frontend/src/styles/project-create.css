@@ -1,0 +1,988 @@
+/* =========================================================
+   HITUNGPROYEK - PROJECT CREATE VERTICAL
+   ========================================================= */
+
+.project-create-page {
+  min-height: calc(100vh - 72px);
+}
+
+.project-create-page .project-create-section {
+  padding: 2.5rem 0 5rem;
+}
+
+.project-create-page .project-create-container {
+  width: min(100% - 40px, 1180px);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   BACK
+   ========================================================= */
+
+.project-create-page .project-create-back {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.4rem;
+}
+
+.project-create-page .project-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 42px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--hp-border);
+  border-radius: 999px;
+  color: var(--hp-navy);
+  background: #fff;
+  font-weight: 800;
+}
+
+.project-create-page .project-back-button:hover {
+  border-color: var(--hp-primary);
+  background: rgba(138, 203, 208, 0.12);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.project-create-page .project-create-header {
+  display: grid;
+  max-width: 760px;
+  gap: 0.7rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.project-create-page .project-create-header .eyebrow {
+  display: block;
+  text-align: center;
+}
+
+.project-create-page .project-create-header h1 {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+}
+
+.project-create-page .project-create-header p {
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   STEPPER
+   ========================================================= */
+
+.project-create-page .project-create-stepper {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  padding: 0.55rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-lg);
+  background: #fff;
+}
+
+.project-create-page .project-step {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 64px;
+  padding: 0.65rem;
+  border: 1px solid transparent;
+  border-radius: var(--hp-radius-md);
+  background: transparent;
+  text-align: left;
+}
+
+.project-create-page .project-step:hover:not(:disabled) {
+  border-color: rgba(86, 182, 198, 0.35);
+  background: rgba(138, 203, 208, 0.08);
+}
+
+.project-create-page .project-step.active {
+  border-color: rgba(86, 182, 198, 0.5);
+  background: rgba(138, 203, 208, 0.16);
+}
+
+.project-create-page .project-step-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--hp-navy);
+  background: rgba(138, 203, 208, 0.18);
+}
+
+.project-create-page .project-step.active .project-step-icon {
+  color: #fff;
+  background: linear-gradient(135deg, #56b6c6, #170c79);
+}
+
+.project-create-page .project-step.done:not(.active) .project-step-icon {
+  color: #067647;
+  background: #ecfdf3;
+}
+
+.project-create-page .project-step-text {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.project-create-page .project-step-text strong {
+  color: var(--hp-navy);
+  font-size: 0.82rem;
+}
+
+.project-create-page .project-step-text small {
+  overflow: hidden;
+  color: var(--hp-muted);
+  font-size: 0.66rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.project-create-page .project-create-summary {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+
+.project-create-page .project-create-summary > div {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.project-create-page .project-create-summary span {
+  color: var(--hp-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.project-create-page .project-create-summary strong {
+  overflow: hidden;
+  color: var(--hp-navy);
+  font-size: 0.84rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.project-create-page .project-create-message {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(247, 144, 9, 0.22);
+  border-radius: var(--hp-radius-md);
+  color: #8a4b0f;
+  background: #fffaeb;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+/* =========================================================
+   PANEL
+   ========================================================= */
+
+.project-create-page .project-create-panel {
+  display: grid;
+  width: 100%;
+  gap: 1.4rem;
+  padding: 1.6rem 1.75rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-lg);
+  background: #fff;
+  box-shadow: var(--hp-shadow);
+}
+
+.project-create-page .project-panel-heading {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: start;
+  gap: 0.9rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--hp-border);
+}
+
+.project-create-page .project-panel-heading > span {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 13px;
+  color: #fff;
+  background: linear-gradient(135deg, #56b6c6, #170c79);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.project-create-page .project-panel-heading > div {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.project-create-page .project-panel-heading h2 {
+  font-size: 1.3rem;
+}
+
+.project-create-page .project-panel-heading p {
+  font-size: 0.84rem;
+}
+
+/* =========================================================
+   STEP 1 - FORM VERTICAL
+   ========================================================= */
+
+.project-create-page .project-create-form {
+  display: grid;
+  width: 100%;
+  max-width: 900px;
+  gap: 1rem;
+}
+
+.project-create-page .project-field {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--hp-text);
+  font-size: 0.88rem;
+  font-weight: 750;
+}
+
+.project-create-page .project-field > span {
+  display: inline-flex;
+  gap: 0.25rem;
+}
+
+.project-create-page .project-field > span b {
+  color: var(--hp-danger);
+}
+
+.project-create-page .project-field input,
+.project-create-page .project-field textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+  color: var(--hp-navy);
+  background: #fff;
+  font: inherit;
+}
+
+.project-create-page .project-field textarea {
+  min-height: 110px;
+  padding-block: 0.75rem;
+  resize: vertical;
+}
+
+.project-create-page .project-field input:focus,
+.project-create-page .project-field textarea:focus {
+  outline: none;
+  border-color: var(--hp-primary);
+  box-shadow: 0 0 0 3px rgba(86, 182, 198, 0.16);
+}
+
+.project-create-page .project-field small {
+  color: var(--hp-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.project-create-page .project-input-unit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px;
+}
+
+.project-create-page .project-input-unit input {
+  border-radius: var(--hp-radius-sm) 0 0 var(--hp-radius-sm);
+}
+
+.project-create-page .project-input-unit > span {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--hp-border);
+  border-left: 0;
+  border-radius: 0 var(--hp-radius-sm) var(--hp-radius-sm) 0;
+  color: var(--hp-navy);
+  background: rgba(138, 203, 208, 0.12);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.project-create-page .project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.project-create-page .project-actions-end {
+  justify-content: flex-end;
+}
+
+/* =========================================================
+   STEP 2 - WORKS
+   ========================================================= */
+
+.project-create-page .project-work-groups {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.project-create-page .project-work-group {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.project-create-page .project-work-group + .project-work-group {
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--hp-border);
+}
+
+.project-create-page .project-work-group-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.project-create-page .project-work-group-heading span {
+  color: var(--hp-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.project-create-page .project-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.project-create-page .project-work-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 72px;
+  padding: 0.85rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: #fff;
+  cursor: pointer;
+}
+
+.project-create-page .project-work-card.selected {
+  border-color: var(--hp-primary);
+  background: rgba(138, 203, 208, 0.14);
+}
+
+.project-create-page .project-work-card input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.project-create-page .project-work-check {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid var(--hp-border);
+  border-radius: 9px;
+  color: #fff;
+  background: #fff;
+}
+
+.project-create-page .project-work-card.selected .project-work-check {
+  border-color: var(--hp-primary);
+  background: var(--hp-primary);
+}
+
+.project-create-page .project-work-copy {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.project-create-page .project-work-copy strong {
+  color: var(--hp-navy);
+  font-size: 0.84rem;
+}
+
+.project-create-page .project-work-copy small {
+  color: var(--hp-muted);
+  font-size: 0.68rem;
+}
+
+/* =========================================================
+   STEP 3 - DETAIL
+   ========================================================= */
+
+.project-create-page .project-detail-note {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: var(--hp-radius-md);
+  background: rgba(138, 203, 208, 0.12);
+}
+
+.project-create-page .project-detail-note strong {
+  color: var(--hp-navy);
+  font-size: 0.78rem;
+}
+
+.project-create-page .project-detail-note span {
+  color: var(--hp-muted);
+  font-size: 0.74rem;
+}
+
+.project-create-page .project-work-accordions {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.project-create-page .project-work-accordion {
+  overflow: hidden;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: #fff;
+}
+
+.project-create-page .project-work-accordion[open] {
+  border-color: rgba(86, 182, 198, 0.7);
+}
+
+.project-create-page .project-work-accordion summary {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.project-create-page .project-work-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-create-page .project-work-accordion[open] summary {
+  background: rgba(138, 203, 208, 0.1);
+}
+
+.project-create-page .project-accordion-number {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--hp-navy);
+  background: rgba(138, 203, 208, 0.18);
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.project-create-page .project-accordion-title {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.project-create-page .project-accordion-title strong {
+  color: var(--hp-navy);
+  font-size: 0.86rem;
+}
+
+.project-create-page .project-accordion-title small {
+  color: var(--hp-muted);
+  font-size: 0.68rem;
+}
+
+.project-create-page .project-accordion-badge {
+  padding: 0.32rem 0.55rem;
+  border-radius: 999px;
+  color: var(--hp-navy);
+  background: rgba(239, 227, 202, 0.55);
+  font-size: 0.66rem;
+  font-weight: 800;
+}
+
+/* =========================================================
+   CALCULATOR FORM - VERTICAL
+   Menyalin pola dari hitung.css tetapi scoped ke ProjectCreate
+   ========================================================= */
+
+.project-create-page .project-calculator-shell {
+  --form-primary: #170c79;
+  --form-soft: #efe3ca;
+  --form-accent: #56b6c6;
+  --form-accent-soft: #8acbd0;
+
+  min-width: 0;
+  padding: 1rem;
+  border-top: 1px solid var(--hp-border);
+  background: #fff;
+}
+
+.project-create-page .project-calculator-shell > .panel,
+.project-create-page .project-calculator-shell .form-panel {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.project-create-page .project-calculator-shell .form-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Selalu vertikal */
+.project-create-page .project-calculator-shell .input-grid {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 0.8rem;
+}
+
+/* Section calculator */
+.project-create-page .project-calculator-shell .calculator-form-section,
+.project-create-page .project-calculator-shell .advanced-options {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgba(23, 12, 121, 0.12);
+  border-radius: var(--hp-radius-md);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.project-create-page .project-calculator-shell .form-section-heading {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.project-create-page .project-calculator-shell .form-section-heading h3,
+.project-create-page .project-calculator-shell .advanced-options summary {
+  color: var(--form-primary);
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+.project-create-page .project-calculator-shell .form-section-heading p {
+  color: var(--hp-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.project-create-page .project-calculator-shell .advanced-options summary {
+  cursor: pointer;
+}
+
+.project-create-page .project-calculator-shell .advanced-options .input-grid {
+  margin-top: 0.85rem;
+}
+
+/* Labels */
+.project-create-page .project-calculator-shell .form-panel label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--hp-text);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+/* Text/number/select only */
+.project-create-page .project-calculator-shell .form-panel input:not([type="radio"]):not([type="checkbox"]),
+.project-create-page .project-calculator-shell .form-panel select,
+.project-create-page .project-calculator-shell .form-panel textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+  color: var(--hp-navy);
+  background: #fff;
+}
+
+.project-create-page .project-calculator-shell .form-panel textarea {
+  padding-block: 0.75rem;
+}
+
+.project-create-page .project-calculator-shell .form-panel input:not([type="radio"]):not([type="checkbox"]):focus,
+.project-create-page .project-calculator-shell .form-panel select:focus,
+.project-create-page .project-calculator-shell .form-panel textarea:focus {
+  outline: none;
+  border-color: var(--hp-primary);
+  box-shadow: 0 0 0 3px rgba(86, 182, 198, 0.18);
+}
+
+/* Unit control */
+.project-create-page .project-calculator-shell .field-label {
+  color: var(--hp-text);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.project-create-page .project-calculator-shell .field-control {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+  background: #fff;
+}
+
+.project-create-page .project-calculator-shell .field-control:focus-within {
+  border-color: var(--form-accent);
+  box-shadow: 0 0 0 3px rgba(86, 182, 198, 0.18);
+}
+
+.project-create-page .project-calculator-shell .field-control input,
+.project-create-page .project-calculator-shell .field-control select {
+  min-height: 44px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.project-create-page .project-calculator-shell .field-control > span {
+  flex: 0 0 auto;
+  padding: 0 0.75rem;
+  color: var(--hp-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+/* Radio cards vertical */
+.project-create-page .project-calculator-shell .radio-card-group {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 0.6rem;
+}
+
+.project-create-page .project-calculator-shell .radio-card {
+  display: flex !important;
+  min-height: 46px;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+  background: #fff;
+  cursor: pointer;
+}
+
+.project-create-page .project-calculator-shell .radio-card.selected {
+  border-color: rgba(86, 182, 198, 0.55);
+  color: var(--form-primary);
+  background: rgba(138, 203, 208, 0.18);
+}
+
+.project-create-page .project-calculator-shell .radio-card input[type="radio"] {
+  width: 18px !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  min-height: 18px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 18px;
+  accent-color: var(--hp-primary);
+}
+
+/* Checkbox line */
+.project-create-page .project-calculator-shell .checkbox-line {
+  display: flex !important;
+  min-height: 46px;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+  background: #fff;
+}
+
+.project-create-page .project-calculator-shell .checkbox-line input[type="checkbox"] {
+  width: 18px !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  min-height: 18px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  accent-color: var(--hp-primary);
+}
+
+/* Dynamic input */
+.project-create-page .project-calculator-shell .dynamic-field-group {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 0.7rem;
+  padding: 0.85rem;
+  border: 1px dashed rgba(23, 12, 121, 0.18);
+  border-radius: var(--hp-radius-sm);
+  background: rgba(239, 227, 202, 0.22);
+}
+
+.project-create-page .project-calculator-shell .dynamic-field-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.project-create-page .project-calculator-shell .dynamic-field-heading h4 {
+  color: var(--form-primary);
+  font-size: 0.92rem;
+}
+
+.project-create-page .project-calculator-shell .dynamic-add {
+  min-height: 38px;
+  padding: 0 0.85rem;
+}
+
+/* Dynamic row dipaksa vertikal */
+.project-create-page .project-calculator-shell .dynamic-field-row {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 0.7rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(23, 12, 121, 0.1);
+  border-radius: var(--hp-radius-sm);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.project-create-page .project-calculator-shell .dynamic-field-row label {
+  font-size: 0.8rem;
+}
+
+.project-create-page .project-calculator-shell .dynamic-remove {
+  width: fit-content;
+  min-height: 40px;
+  justify-self: end;
+  padding: 0 0.8rem;
+  border: 1px solid rgba(23, 12, 121, 0.12);
+  border-radius: var(--hp-radius-sm);
+  color: var(--hp-muted);
+  background: #fff;
+  font-weight: 800;
+}
+
+.project-create-page .project-calculator-shell .dynamic-remove:not(:disabled):hover {
+  color: var(--form-primary);
+  border-color: rgba(23, 12, 121, 0.25);
+}
+
+/* Fallback radio/checkbox global */
+.project-create-page .project-calculator-shell input[type="radio"],
+.project-create-page .project-calculator-shell input[type="checkbox"] {
+  width: 18px !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  min-height: 18px !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  accent-color: var(--hp-primary);
+}
+
+/* =========================================================
+   STEP 4
+   ========================================================= */
+
+.project-create-page .project-result-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.project-create-page .project-result-summary > div {
+  padding: 1rem;
+  border-radius: var(--hp-radius-md);
+  background: rgba(138, 203, 208, 0.14);
+}
+
+.project-create-page .project-result-summary .total {
+  background: rgba(239, 227, 202, 0.55);
+}
+
+.project-create-page .project-result-summary span {
+  display: block;
+  color: var(--hp-muted);
+  font-size: 0.75rem;
+}
+
+.project-create-page .project-result-summary strong {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--hp-navy);
+  font-size: 1.12rem;
+}
+
+.project-create-page .project-result-jobs {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.project-create-page .project-result-job {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-sm);
+}
+
+.project-create-page .project-result-job > span {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--hp-navy);
+  background: rgba(138, 203, 208, 0.16);
+  font-size: 0.7rem;
+  font-weight: 850;
+}
+
+.project-create-page .project-result-job h3 {
+  font-size: 0.84rem;
+}
+
+.project-create-page .project-result-job strong {
+  color: var(--hp-navy);
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+.project-create-page .project-material-summary {
+  display: grid;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--hp-border);
+}
+
+.project-create-page .project-material-summary p {
+  margin-top: 0.2rem;
+  font-size: 0.76rem;
+}
+
+.project-create-page .project-material-table {
+  overflow-x: auto;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .project-create-page .project-create-stepper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-create-page .project-work-grid,
+  .project-create-page .project-create-summary,
+  .project-create-page .project-result-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .project-create-page .project-create-section {
+    padding: 1.8rem 0 3rem;
+  }
+
+  .project-create-page .project-create-header {
+    text-align: left;
+  }
+
+  .project-create-page .project-create-header .eyebrow {
+    text-align: left;
+  }
+
+  .project-create-page .project-create-header p {
+    margin: 0;
+  }
+
+  .project-create-page .project-create-panel {
+    padding: 1rem;
+  }
+
+  .project-create-page .project-create-stepper {
+    grid-template-columns: 1fr;
+  }
+
+  .project-create-page .project-panel-heading {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+
+  .project-create-page .project-panel-heading > span {
+    width: 42px;
+    height: 42px;
+  }
+
+  .project-create-page .project-detail-note {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .project-create-page .project-work-accordion summary {
+    grid-template-columns: 36px minmax(0, 1fr);
+  }
+
+  .project-create-page .project-accordion-badge {
+    display: none;
+  }
+
+  .project-create-page .project-calculator-shell {
+    padding: 0.75rem;
+  }
+
+  .project-create-page .project-actions {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .project-create-page .project-actions .button {
+    width: 100%;
+  }
+
+  .project-create-page .project-actions-end {
+    flex-direction: column;
+  }
+
+  .project-create-page .project-result-job {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  .project-create-page .project-result-job strong {
+    grid-column: 2;
+  }
+}
