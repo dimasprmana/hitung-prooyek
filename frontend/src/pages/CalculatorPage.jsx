@@ -14,6 +14,7 @@ import {
   saveCalculationHistory,
 } from '../services/historyApi'
 import { addProjectWork } from '../services/projectApi'
+import { getMaterials } from '../services/materialApi'
 
 function loadHistoryInput(search) {
   const historyId = new URLSearchParams(search).get('history')
@@ -32,12 +33,41 @@ function CalculatorPage() {
     type,
     input: getInitialInput(type, loadedInput || {}),
   }))
+  const [materials, setMaterials] = useState([])
+  const [loadingMaterials, setLoadingMaterials] = useState(true)
+  const [materialsError, setMaterialsError] = useState('')
   const [resultState, setResultState] = useState(null)
   const [message, setMessage] = useState('')
   const [historyOpen, setHistoryOpen] = useState(false)
   const [projectOpen, setProjectOpen] = useState(false)
   const form = formState.type === type ? formState.input : getInitialInput(type, loadedInput || {})
   const result = resultState?.type === type ? resultState.value : null
+
+  useEffect(() => {
+    let isMounted = true
+    setLoadingMaterials(true)
+
+    getMaterials()
+      .then((response) => {
+        if (!isMounted) return
+        const items = Array.isArray(response?.data) ? response.data : []
+        setMaterials(items)
+        setMaterialsError('')
+      })
+      .catch((error) => {
+        if (!isMounted) return
+        setMaterialsError(error.message || 'Data material gagal dimuat dari database.')
+      })
+      .finally(() => {
+        if (isMounted) {
+          setLoadingMaterials(false)
+        }
+      })
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -85,10 +115,18 @@ function CalculatorPage() {
 
   function calculate(event) {
     event.preventDefault()
+    if (loadingMaterials) {
+      setMessage('Sedang memuat data harga material...')
+      return
+    }
+    if (materialsError) {
+      setMessage(`Harga material gagal dimuat: ${materialsError}`)
+      return
+    }
     try {
       setResultState({
         type,
-        value: calculateByType(type, prepareCalculatorInput(type, form)),
+        value: calculateByType(type, prepareCalculatorInput(type, form), materials),
       })
       setMessage('')
     } catch (error) {
@@ -161,6 +199,11 @@ function CalculatorPage() {
           </div>
         </div>
 
+        {materialsError && (
+          <p className="form-note" role="alert" style={{ marginBottom: '1rem', color: '#b91c1c' }}>
+            {materialsError}
+          </p>
+        )}
         {message && <p className="success-message">{message}</p>}
 
         <div className="calculator-layout">

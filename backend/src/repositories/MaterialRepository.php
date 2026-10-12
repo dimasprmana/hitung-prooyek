@@ -101,6 +101,73 @@ final class MaterialRepository
         return $prices[0];
     }
 
+    /**
+     * Return a map of lowercase material name => material ID for duplicate detection.
+     */
+    public function existingNamesMap(): array
+    {
+        $rows = $this->pdo->query('SELECT id, name FROM materials')->fetchAll();
+        $map = [];
+        foreach ($rows as $row) {
+            $map[mb_strtolower((string) $row['name'])] = (int) $row['id'];
+        }
+        return $map;
+    }
+
+    /**
+     * Batch-insert valid, non-duplicate rows inside a PDO transaction.
+     *
+     * @param array<int, array{name: string, category: string, unit: string, price: float, status: string}> $rows
+     * @return array{inserted: int, skipped: int, failed: int}
+     */
+    public function bulkImport(array $rows): array
+    {
+        $inserted = 0;
+        $skipped  = 0;
+        $failed   = 0;
+
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO materials (name, category, unit, price, status, created_at, updated_at)
+             VALUES (:name, :category, :unit, :price, :status, :created_at, :updated_at)'
+        );
+
+        $this->pdo->beginTransaction();
+
+        try {
+            foreach ($rows as $row) {
+                // Final safety: skip if name is empty (should not happen after validation)
+                if (trim((string) ($row['name'] ?? '')) === '') {
+                    $skipped++;
+                    continue;
+                }
+
+                $now = nowDate();
+                $ok = $stmt->execute([
+                    'name'       => trim((string) $row['name']),
+                    'category'   => trim((string) $row['category']),
+                    'unit'       => trim((string) $row['unit']),
+                    'price'      => (float) ($row['price'] ?? 0),
+                    'status'     => $row['status'] ?? 'Aktif',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+
+                if ($ok) {
+                    $inserted++;
+                } else {
+                    $failed++;
+                }
+            }
+
+            $this->pdo->commit();
+        } catch (Throwable $e) {
+            $this->pdo->rollBack();
+            throw $e;
+        }
+
+        return ['inserted' => $inserted, 'skipped' => $skipped, 'failed' => $failed];
+    }
+
     private function format(array $row): array
     {
         return [

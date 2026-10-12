@@ -1,9 +1,45 @@
+/* ==================================================
+   1. IMPORT FONT (Opsional)
+   (Jika sudah ada di index.css atau login.css, 
+   bagian ini bisa dihapus agar tidak duplikat)
+================================================== */
+@font-face {
+  font-family: 'Futura PT';
+  src: local('Futura PT'), local('Futura');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neutraface';
+  src: local('Neutraface'), local('Neutra Text');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ==================================================
+   2. VARIABEL FONT
+================================================== */
+:root {
+  /* Font Utama: Teks halaman dan UI */
+  --font-utama: 'Futura PT', 'Century Gothic', 'Avenir Next', Arial, sans-serif;
+  
+  /* Font Brand: Logo dan identitas brand */
+  --font-brand: 'Neutraface', 'Neutra Text', 'Futura', 'Century Gothic', sans-serif;
+}
+
+/* ==================================================
+   3. BASE & LAYOUT
+================================================== */
 .register-page {
   min-height: 100vh;
   display: grid;
   place-items: center;
   padding: 24px;
   background: var(--hp-bg, #f8f7f3);
+  
+  /* Terapkan font utama ke seluruh halaman register */
+  font-family: var(--font-utama);
 }
 
 .register-card {
@@ -16,17 +52,27 @@
   background: #fff;
 }
 
+/* ==================================================
+   4. BRAND / LOGO
+================================================== */
 .register-brand {
   width: fit-content;
   color: var(--hp-navy, #170c79);
+  
+  /* Terapkan font khusus brand ke logo */
+  font-family: var(--font-brand);
   font-weight: 850;
   text-decoration: none;
+  font-size: 1.5rem; /* Menyamakan ukuran dengan halaman login */
 }
 
 .register-brand span {
   color: var(--hp-primary, #56b6c6);
 }
 
+/* ==================================================
+   5. HEADER & TEXT
+================================================== */
 .register-header {
   display: grid;
   gap: 0.3rem;
@@ -44,6 +90,9 @@
   font-size: 0.78rem;
 }
 
+/* ==================================================
+   6. FORM & INPUT
+================================================== */
 .register-form {
   display: grid;
   gap: 0.85rem;
@@ -54,6 +103,14 @@
   gap: 0.4rem;
   font-size: 0.75rem;
   font-weight: 750;
+}
+
+/* Pastikan input dan button mewarisi font utama dari .register-page */
+.register-field > input,
+.register-password input,
+.register-submit,
+button {
+  font-family: inherit;
 }
 
 .register-field > input,
@@ -88,6 +145,7 @@
   place-items: center;
   border: 0;
   background: transparent;
+  cursor: pointer;
 }
 
 .register-submit {
@@ -97,6 +155,7 @@
   color: #fff;
   background: var(--hp-navy, #170c79);
   font-weight: 850;
+  cursor: pointer;
 }
 
 .register-message {
@@ -107,6 +166,9 @@
   font-size: 0.72rem;
 }
 
+/* ==================================================
+   7. LINKS & UTILITIES
+================================================== */
 .register-switch,
 .register-back {
   margin: 0;

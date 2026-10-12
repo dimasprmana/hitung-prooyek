@@ -1,4 +1,4 @@
-import { request } from './api'
+import { API_BASE_URL, request } from './api'
 
 export function getAdminDashboard() {
   return request('/admin/dashboard')
@@ -60,6 +60,31 @@ export function updateAdminMaterial(id, data) {
 export function deleteAdminMaterial(id) {
   return request(`/admin/materials/${id}`, {
     method: 'DELETE',
+  })
+}
+
+export async function downloadMaterialTemplate() {
+  const response = await fetch(`${API_BASE_URL}/admin/materials/template`, {
+    method: 'GET',
+    credentials: 'include',
+  })
+  if (!response.ok) {
+    throw new Error('Gagal mengunduh template Excel.')
+  }
+  return response.blob()
+}
+
+export function previewAdminMaterialImport(formData) {
+  return request('/admin/materials/import-preview', {
+    method: 'POST',
+    body: formData,
+  })
+}
+
+export function confirmAdminMaterialImport(rows) {
+  return request('/admin/materials/import', {
+    method: 'POST',
+    body: { rows },
   })
 }
 

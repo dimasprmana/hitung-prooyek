@@ -231,3 +231,193 @@
     width: 100%;
   }
 }
+
+/* Toolbar tombol halaman material */
+.admin-material-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Tombol hapus semua menggunakan warna merah */
+.admin-material-toolbar .admin-button.danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+/* Status tombol saat tidak tersedia */
+.admin-material-toolbar .admin-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Pesan kesalahan */
+.admin-material-error {
+  padding: 0.85rem 1rem;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #b42318;
+  background: #fef2f2;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .admin-material-toolbar {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* =========================
+   TOOLBAR MATERIAL
+========================= */
+
+.admin-material-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.admin-material-toolbar .admin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.admin-material-toolbar .admin-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================
+   PENCARIAN MATERIAL
+========================= */
+
+.admin-material-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-material-search-input {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: min(100%, 440px);
+  min-height: 44px;
+  padding: 0 0.85rem;
+  border: 1px solid #dbe3ed;
+  border-radius: 10px;
+  color: #64748b;
+  background: #fff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-material-search-input:focus-within {
+  border-color: #56b6c6;
+  box-shadow: 0 0 0 3px rgba(86, 182, 198, 0.12);
+}
+
+.admin-material-search-input input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 0;
+  border: none;
+  outline: none;
+  color: #29264f;
+  background: transparent;
+  font: inherit;
+  font-size: 0.82rem;
+}
+
+.admin-material-search-input input::placeholder {
+  color: #94a3b8;
+}
+
+.admin-material-search-input input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.admin-material-search-input button {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  color: #64748b;
+  background: transparent;
+  cursor: pointer;
+}
+
+.admin-material-search-input button:hover {
+  color: #b42318;
+  background: #fef2f2;
+}
+
+.admin-material-search-count {
+  color: #64748b;
+  font-size: 0.76rem;
+}
+
+.admin-material-empty {
+  padding: 2rem 1rem !important;
+  color: #64748b;
+  text-align: center;
+}
+
+/* =========================
+   PESAN ERROR
+========================= */
+
+.admin-material-error {
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #b42318;
+  background: #fef2f2;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 640px) {
+  .admin-material-toolbar {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .admin-material-search {
+    align-items: stretch;
+  }
+
+  .admin-material-search-input {
+    width: 100%;
+  }
+
+  .admin-material-search-count {
+    font-size: 0.72rem;
+  }
+}

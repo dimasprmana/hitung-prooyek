@@ -49,6 +49,9 @@ function routeApi(): void
     if ($path === '/api/admin/materials' && $method === 'POST') $admin->createMaterial();
     if (preg_match('#^/api/admin/materials/(\d+)$#', $path, $m) && $method === 'PUT') $admin->updateMaterial((int) $m[1]);
     if (preg_match('#^/api/admin/materials/(\d+)$#', $path, $m) && $method === 'DELETE') $admin->deleteMaterial((int) $m[1]);
+    if ($path === '/api/admin/materials/template' && $method === 'GET') $admin->downloadMaterialTemplate();
+    if ($path === '/api/admin/materials/import-preview' && $method === 'POST') $admin->previewMaterialImport();
+    if ($path === '/api/admin/materials/import' && $method === 'POST') $admin->importMaterials();
     if (preg_match('#^/api/admin/materials/(\d+)/prices$#', $path, $m) && $method === 'GET') $admin->materialPrices((int) $m[1]);
     if (preg_match('#^/api/admin/materials/(\d+)/prices$#', $path, $m) && $method === 'POST') $admin->createMaterialPrice((int) $m[1]);
     if ($path === '/api/admin/projects' && $method === 'GET') $admin->projects();

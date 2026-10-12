@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ChevronLeft,ChevronRight,Search,} from 'lucide-react'
+import { ChevronLeft, ChevronRight, Search, PackageOpen, Loader2, AlertCircle } from 'lucide-react'
 import { getMaterials } from '../services/materialApi'
 import { formatRupiah } from '../utils/currency'
 
@@ -20,268 +20,165 @@ function Materials() {
         setMaterials(response.data || [])
         setError('')
       })
-      .catch((requestError) => {
-        setError(
-          requestError.message ||
-            'Material gagal dimuat.',
-        )
-      })
+      .catch((err) => setError(err.message || 'Material gagal dimuat.'))
       .finally(() => setLoading(false))
   }, [])
 
   const filteredMaterials = useMemo(() => {
-    const normalizedQuery = query
-      .toLowerCase()
-      .trim()
-
-    if (!normalizedQuery) {
-      return materials
-    }
+    const normalizedQuery = query.toLowerCase().trim()
+    if (!normalizedQuery) return materials
 
     return materials.filter((material) =>
-      [
-        material.name,
-        material.category,
-        material.unit,
-      ].some((value) =>
-        String(value || '')
-          .toLowerCase()
-          .includes(normalizedQuery),
-      ),
+      [material.name, material.category, material.unit].some((value) =>
+        String(value || '').toLowerCase().includes(normalizedQuery)
+      )
     )
   }, [materials, query])
 
-  const totalPages = Math.max(
-    1,
-    Math.ceil(
-      filteredMaterials.length / ITEMS_PER_PAGE,
-    ),
-  )
+  const totalPages = Math.max(1, Math.ceil(filteredMaterials.length / ITEMS_PER_PAGE))
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+  const paginatedMaterials = filteredMaterials.slice(startIndex, startIndex + ITEMS_PER_PAGE)
 
+  useEffect(() => setCurrentPage(1), [query])
   useEffect(() => {
-    setCurrentPage(1)
-  }, [query])
-
-  useEffect(() => {
-    if (currentPage > totalPages) {
-      setCurrentPage(totalPages)
-    }
+    if (currentPage > totalPages) setCurrentPage(totalPages)
   }, [currentPage, totalPages])
 
-  const startIndex =
-    (currentPage - 1) * ITEMS_PER_PAGE
-
-  const endIndex = Math.min(
-    startIndex + ITEMS_PER_PAGE,
-    filteredMaterials.length,
-  )
-
-  const paginatedMaterials =
-    filteredMaterials.slice(
-      startIndex,
-      endIndex,
-    )
-
-  function goToPage(page) {
-    if (page < 1 || page > totalPages) {
-      return
-    }
-
-    setCurrentPage(page)
+  const goToPage = (page) => {
+    if (page >= 1 && page <= totalPages) setCurrentPage(page)
   }
 
   return (
-    <main className="page material-page">
-      <section className="section">
-        <div className="container">
-          <div className="page-heading-row">
-            <div className="page-title compact">
-              <span className="eyebrow">
-                Referensi Harga
-              </span>
-
-              <h1>Daftar Material</h1>
-
-              <p>
-                Lihat referensi harga material untuk membantu
-                memperkirakan kebutuhan biaya proyek.
-              </p>
-            </div>
-
-            <label className="search-field">
-              <Search size={18} />
-
-              <input
-                type="search"
-                placeholder="Cari material..."
-                value={query}
-                onChange={(event) =>
-                  setQuery(event.target.value)
-                }
-              />
-            </label>
+    <main className="material-page">
+      <div className="container">
+        {/* Header Section */}
+        <header className="page-header">
+          <div className="header-content">
+            <span className="eyebrow">Referensi Harga</span>
+            <h1>Daftar Material</h1>
+            <p>Lihat referensi harga material untuk membantu memperkirakan kebutuhan biaya proyek.</p>
           </div>
 
-          <div className="panel table-wrap">
+          <div className="search-container">
+            <Search className="search-icon" size={18} />
+            <input
+              type="search"
+              className="search-input"
+              placeholder="Cari nama, kategori, atau satuan..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+        </header>
+
+        {/* Table Section */}
+        <section className="table-section">
+          <div className="table-responsive">
             <table className="material-table">
               <thead>
                 <tr>
-                  <th className="column-number">
-                    No
-                  </th>
-
+                  <th className="col-num">No</th>
                   <th>Nama Material</th>
                   <th>Kategori</th>
                   <th>Satuan</th>
-
-                  <th className="column-price">
-                    Harga
-                  </th>
+                  <th className="col-price">Harga</th>
                 </tr>
               </thead>
-
               <tbody>
+                {/* State: Loading */}
                 {loading && (
                   <tr>
-                    <td
-                      colSpan="5"
-                      className="table-message"
-                    >
-                      Memuat material...
+                    <td colSpan="5">
+                      <div className="empty-state">
+                        <Loader2 className="spinner" size={28} />
+                        <p>Memuat data material...</p>
+                      </div>
                     </td>
                   </tr>
                 )}
 
+                {/* State: Error */}
                 {!loading && error && (
                   <tr>
-                    <td
-                      colSpan="5"
-                      className="table-message error"
-                    >
-                      {error}
+                    <td colSpan="5">
+                      <div className="empty-state error">
+                        <AlertCircle size={28} />
+                        <p>{error}</p>
+                      </div>
                     </td>
                   </tr>
                 )}
 
-                {!loading &&
-                  !error &&
-                  filteredMaterials.length === 0 && (
-                    <tr>
-                      <td
-                        colSpan="5"
-                        className="table-message"
-                      >
-                        Belum ada material.
-                      </td>
-                    </tr>
-                  )}
+                {/* State: Empty */}
+                {!loading && !error && filteredMaterials.length === 0 && (
+                  <tr>
+                    <td colSpan="5">
+                      <div className="empty-state">
+                        <PackageOpen size={32} />
+                        <p>Tidak ada material yang ditemukan.</p>
+                      </div>
+                    </td>
+                  </tr>
+                )}
 
-                {!loading &&
-                  !error &&
-                  paginatedMaterials.map(
-                    (material, index) => (
-                      <tr key={material.id}>
-                        <td className="column-number">
-                          {startIndex + index + 1}
-                        </td>
-
-                        <td>
-                          <strong className="material-name">
-                            {material.name}
-                          </strong>
-                        </td>
-
-                        <td>
-                          {material.category}
-                        </td>
-
-                        <td>
-                          {material.unit}
-                        </td>
-
-                        <td className="material-price">
-                          {formatRupiah(
-                            material.price,
-                          )}
-                        </td>
-                      </tr>
-                    ),
-                  )}
+                {/* Data Rows */}
+                {!loading && !error && paginatedMaterials.map((material, index) => (
+                  <tr key={material.id}>
+                    <td className="col-num">{startIndex + index + 1}</td>
+                    <td className="font-semibold text-navy">{material.name}</td>
+                    <td>{material.category}</td>
+                    <td><span className="badge-unit">{material.unit}</span></td>
+                    <td className="col-price font-bold text-navy">
+                      {formatRupiah(material.price)}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
+        </section>
 
-          {!loading &&
-            !error &&
-            filteredMaterials.length > 0 && (
-              <div className="material-pagination">
-                <p className="pagination-info">
-                  Menampilkan{' '}
-                  <strong>
-                    {startIndex + 1}–{endIndex}
-                  </strong>{' '}
-                  dari{' '}
-                  <strong>
-                    {filteredMaterials.length}
-                  </strong>{' '}
-                  material
-                </p>
+        {/* Pagination Section */}
+        {!loading && !error && filteredMaterials.length > 0 && (
+          <footer className="pagination-footer">
+            <p className="pagination-info">
+              Menampilkan <strong>{startIndex + 1}–{Math.min(startIndex + ITEMS_PER_PAGE, filteredMaterials.length)}</strong> dari <strong>{filteredMaterials.length}</strong> material
+            </p>
 
-                <div className="pagination-buttons">
+            <nav className="pagination-controls">
+              <button
+                className="btn-page"
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                aria-label="Previous page"
+              >
+                <ChevronLeft size={18} />
+              </button>
+
+              <div className="page-numbers">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                   <button
-                    type="button"
-                    className="pagination-button arrow"
-                    onClick={() =>
-                      goToPage(currentPage - 1)
-                    }
-                    disabled={currentPage === 1}
-                    aria-label="Halaman sebelumnya"
+                    key={page}
+                    className={`btn-page ${currentPage === page ? 'active' : ''}`}
+                    onClick={() => goToPage(page)}
                   >
-                    <ChevronLeft size={16} />
+                    {page}
                   </button>
-
-                  {Array.from(
-                    { length: totalPages },
-                    (_, index) => {
-                      const page = index + 1
-
-                      return (
-                        <button
-                          key={page}
-                          type="button"
-                          className={`pagination-button ${
-                            currentPage === page
-                              ? 'active'
-                              : ''
-                          }`}
-                          onClick={() =>
-                            goToPage(page)
-                          }
-                        >
-                          {page}
-                        </button>
-                      )
-                    },
-                  )}
-
-                  <button
-                    type="button"
-                    className="pagination-button arrow"
-                    onClick={() =>
-                      goToPage(currentPage + 1)
-                    }
-                    disabled={
-                      currentPage === totalPages
-                    }
-                    aria-label="Halaman berikutnya"
-                  >
-                    <ChevronRight size={16} />
-                  </button>
-                </div>
+                ))}
               </div>
-            )}
-        </div>
-      </section>
+
+              <button
+                className="btn-page"
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                aria-label="Next page"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </nav>
+          </footer>
+        )}
+      </div>
     </main>
   )
 }

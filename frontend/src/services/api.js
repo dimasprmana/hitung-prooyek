@@ -27,6 +27,8 @@ export async function request(path, options = {}) {
   const { method = 'GET', body, headers = {}, ...rest } = options
   const url = `${API_BASE_URL}${path.startsWith('/') ? path : `/${path}`}`
 
+  const isFormData = body instanceof FormData
+
   let response
 
   try {
@@ -35,10 +37,12 @@ export async function request(path, options = {}) {
       credentials: 'include',
       headers: {
         Accept: 'application/json',
-        ...(body !== undefined ? { 'Content-Type': 'application/json' } : {}),
+        // For FormData, let the browser set Content-Type with boundary automatically.
+        // For JSON, set it explicitly.
+        ...(body !== undefined && !isFormData ? { 'Content-Type': 'application/json' } : {}),
         ...headers,
       },
-      body: body !== undefined ? JSON.stringify(body) : undefined,
+      body: body !== undefined ? (isFormData ? body : JSON.stringify(body)) : undefined,
       ...rest,
     })
   } catch {

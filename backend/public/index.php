@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 require __DIR__ . '/../src/helpers/response.php';
+require __DIR__ . '/../src/helpers/XlsxHelper.php';
 require __DIR__ . '/../src/config/database.php';
 require __DIR__ . '/../src/repositories/UserRepository.php';
 require __DIR__ . '/../src/repositories/ProjectRepository.php';

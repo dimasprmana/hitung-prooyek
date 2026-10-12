@@ -1,9 +1,46 @@
+/* ==================================================
+   1. IMPORT FONT (Opsional)
+   Hapus atau sesuaikan path url() jika Anda memiliki
+   file font lokal di folder assets proyek Anda.
+================================================== */
+
+@font-face {
+  font-family: 'Futura PT';
+  src: local('Futura PT'), local('Futura');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neutraface';
+  src: local('Neutraface'), local('Neutra Text');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ==================================================
+   2. VARIABEL FONT & WARNA
+================================================== */
+:root {
+  /* Font Utama: Teks halaman dan UI */
+  --font-utama: 'Futura PT', 'Century Gothic', 'Avenir Next', Arial, sans-serif;
+  
+  /* Font Brand: Logo dan identitas brand */
+  --font-brand: 'Neutraface', 'Neutra Text', 'Futura', 'Century Gothic', sans-serif;
+}
+
+/* ==================================================
+   3. BASE & LAYOUT
+================================================== */
 .login-page {
   min-height: 100vh;
   display: grid;
   place-items: center;
   padding: 24px;
   background: var(--hp-bg, #f8f7f3);
+  
+  /* Terapkan font utama ke seluruh halaman */
+  font-family: var(--font-utama);
 }
 
 .login-card {
@@ -16,17 +53,27 @@
   background: #fff;
 }
 
+/* ==================================================
+   4. BRAND / LOGO
+================================================== */
 .login-brand {
   width: fit-content;
   color: var(--hp-navy, #170c79);
+  
+  /* Terapkan font khusus brand ke logo */
+  font-family: var(--font-brand);
   font-weight: 850;
   text-decoration: none;
+  font-size: 1.5rem; /* Tambahan agar logo sedikit lebih besar, bisa disesuaikan */
 }
 
 .login-brand span {
   color: var(--hp-primary, #56b6c6);
 }
 
+/* ==================================================
+   5. HEADER & TEXT
+================================================== */
 .login-header {
   display: grid;
   gap: 0.3rem;
@@ -44,6 +91,9 @@
   font-size: 0.78rem;
 }
 
+/* ==================================================
+   6. FORM & INPUT
+================================================== */
 .login-form {
   display: grid;
   gap: 0.9rem;
@@ -54,6 +104,15 @@
   gap: 0.4rem;
   font-size: 0.75rem;
   font-weight: 750;
+}
+
+/* Pastikan input dan button mewarisi font utama dari .login-page */
+.login-field > input,
+.login-password input,
+.login-submit,
+.login-demo-button,
+button {
+  font-family: inherit;
 }
 
 .login-field > input,
@@ -88,6 +147,7 @@
   place-items: center;
   border: 0;
   background: transparent;
+  cursor: pointer;
 }
 
 .login-submit {
@@ -97,6 +157,7 @@
   color: #fff;
   background: var(--hp-navy, #170c79);
   font-weight: 850;
+  cursor: pointer;
 }
 
 .login-demo-button {
@@ -106,6 +167,7 @@
   color: var(--hp-navy, #170c79);
   background: #fff;
   font-weight: 750;
+  cursor: pointer;
 }
 
 .login-demo-info {
@@ -130,6 +192,9 @@
   font-size: 0.72rem;
 }
 
+/* ==================================================
+   7. LINKS & UTILITIES
+================================================== */
 .login-switch,
 .login-admin-link,
 .login-back {
@@ -148,6 +213,7 @@
   color: var(--hp-navy, #170c79);
   font-weight: 750;
 }
+
 .login-forgot {
   display: flex;
   justify-content: flex-end;
@@ -166,71 +232,49 @@
   color: #1d46d8;
   text-decoration: underline;
 }
-/* ==================================================
-   LOGIN SUCCESS POPUP
-================================================== */
 
+/* ==================================================
+   8. LOGIN SUCCESS POPUP
+================================================== */
 .login-success-overlay {
   position: fixed;
   inset: 0;
   z-index: 9999;
-
   display: grid;
   place-items: center;
-
   padding: 24px;
-
   background: rgba(15, 23, 42, 0.42);
-
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-
   animation: loginOverlayIn 0.2s ease-out;
 }
 
 .login-success-popup {
   width: min(100%, 360px);
-
   display: grid;
   justify-items: center;
-
   padding: 32px 30px 24px;
-
   border: 1px solid #dbe8eb;
   border-radius: 20px;
-
   background: #fff;
-
   box-shadow:
     0 24px 60px rgba(15, 23, 42, 0.18),
     0 8px 20px rgba(15, 23, 42, 0.08);
-
   text-align: center;
-
   animation: loginPopupIn 0.25s ease-out;
 }
 
-/* ==================================================
-   ICON CHECK
-================================================== */
-
+/* ICON CHECK */
 .login-success-icon {
   width: 72px;
   height: 72px;
-
   display: grid;
   place-items: center;
-
   margin-bottom: 18px;
-
   border-radius: 50%;
-
   color: #16a34a;
   background: #ecfdf3;
-
-  box-shadow:
-    0 0 0 8px #f4fbf6;
-
+  box-shadow: 0 0 0 8px #f4fbf6;
   animation: loginCheckIn 0.4s ease-out;
 }
 
@@ -238,10 +282,7 @@
   stroke-width: 2.5;
 }
 
-/* ==================================================
-   CONTENT
-================================================== */
-
+/* CONTENT POPUP */
 .login-success-content {
   display: grid;
   gap: 7px;
@@ -249,9 +290,7 @@
 
 .login-success-content h2 {
   margin: 0;
-
   color: var(--hp-navy, #170c79);
-
   font-size: 22px;
   font-weight: 800;
   line-height: 1.25;
@@ -259,55 +298,38 @@
 
 .login-success-content p {
   margin: 0;
-
   color: var(--hp-muted, #6e6b86);
-
   font-size: 13px;
   line-height: 1.6;
 }
 
-/* ==================================================
-   PROGRESS BAR
-================================================== */
-
+/* PROGRESS BAR */
 .login-success-progress {
   width: 100%;
   height: 4px;
-
   margin-top: 24px;
-
   overflow: hidden;
-
   border-radius: 999px;
-
   background: #edf1f5;
 }
 
 .login-success-progress span {
   display: block;
-
   width: 100%;
   height: 100%;
-
   border-radius: inherit;
-
   background: #56b6c6;
-
   transform-origin: left;
-
-  animation: loginSuccessProgress 2s
-    linear forwards;
+  animation: loginSuccessProgress 2s linear forwards;
 }
 
 /* ==================================================
-   ANIMATION
+   9. ANIMATIONS
 ================================================== */
-
 @keyframes loginOverlayIn {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -318,7 +340,6 @@
     opacity: 0;
     transform: translateY(10px) scale(0.96);
   }
-
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -330,11 +351,9 @@
     opacity: 0;
     transform: scale(0.5);
   }
-
   60% {
     transform: scale(1.08);
   }
-
   100% {
     opacity: 1;
     transform: scale(1);
@@ -345,16 +364,14 @@
   from {
     transform: scaleX(1);
   }
-
   to {
     transform: scaleX(0);
   }
 }
 
 /* ==================================================
-   MOBILE
+   10. MOBILE RESPONSIVE
 ================================================== */
-
 @media (max-width: 480px) {
   .login-success-overlay {
     padding: 20px;
@@ -362,9 +379,7 @@
 
   .login-success-popup {
     width: 100%;
-
     padding: 28px 22px 22px;
-
     border-radius: 18px;
   }
 
